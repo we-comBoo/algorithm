@@ -16,7 +16,7 @@ for _ in range(T):
     #print("arr",answer)
     
     for scores in arr: 
-        # 서류 순위가 오름차순으로 정렬되어 있으므로 
+        # 서류 순위가 오름차순으로 정렬되어 있으므로 (이미 서류 순위는 현재 값이 더 낮음)
         # 최고 면접 순위보다 현재 면접 순위가 높아야 함 + 더 높은 순위 나오면 갱신
         if scores[1]<best_t2:
             answer.append(scores)
