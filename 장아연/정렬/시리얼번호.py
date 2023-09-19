@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1431
+# 백준 시리얼번호
 
 import sys
 input = sys.stdin.readline
