@@ -44,17 +44,13 @@ public class S1431 {
 
         private int sumOfDigit(String str) {
             int sum = 0;
-            String[] digits = str.split("");
-            for (String digit : digits) {
-                if (isDigit(digit)) {
-                    sum += Integer.parseInt(digit);
+            for (int i = 0; i < str.length(); i++) {
+                char ch = str.charAt(i);
+                if (ch >= '0' && ch <= '9') {
+                    sum += ch - '0';
                 }
             }
             return sum;
-        }
-
-        private boolean isDigit(String digit) {
-            return digit.matches("\\d");
         }
     };
 }
