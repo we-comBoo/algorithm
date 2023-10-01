@@ -29,12 +29,13 @@ public class S4889 {
             if (!str.isEmpty() && str.charAt(0) == '-') {
                 break;
             }
-            int answer = calcAnswer(str);
+            int answer = calcAnswer2(str);
             System.out.println(i + ". " + answer);
         }
     }
 
-    private static int calcAnswer(String str) {
+    // 스택 사용
+    private static int calcAnswer1(String str) {
         Deque<Character> stack = new ArrayDeque<>();
         int length = str.length();
         int answer = 0;
@@ -52,6 +53,29 @@ public class S4889 {
 
         if (!stack.isEmpty()) {
             return answer + (stack.size() / 2);
+        }
+        return answer;
+    }
+
+    // 스택의 사이즈만 필요 -> 정수형 변수만 사용 (스택 X)
+    private static int calcAnswer2(String str) {
+        int length = str.length();
+        int answer = 0;
+        int size = 0;
+
+        for (int i = 0; i < length; i++) {
+            if (str.charAt(i) == '{') {
+                size++;
+            } else if (size == 0) {
+                answer++;
+                size++;
+            } else {
+                size--;
+            }
+        }
+
+        if (size > 0) {
+            return answer + (size / 2);
         }
         return answer;
     }
