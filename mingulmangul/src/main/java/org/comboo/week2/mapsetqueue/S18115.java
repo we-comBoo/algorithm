@@ -45,4 +45,35 @@ public class S18115 {
         }
         System.out.println(sb);
     }
+
+    /**
+     * 덱 대신 인덱스 3개 사용
+     */
+    public static void solution2() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] answer = new int[n];
+
+        int first = 0;
+        int second = 1;
+        int last = n - 1;
+        for (int card = n; card >= 1; card--) {
+            String command = st.nextToken();
+            if (command.equals("1")) {
+                answer[first] = card;
+                first = second++;
+            } else if (command.equals("2")) {
+                answer[second++] = card;
+            } else {
+                answer[last--] = card;
+            }
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (int i : answer) {
+            sb.append(i).append(" ");
+        }
+        System.out.println(sb);
+    }
 }
