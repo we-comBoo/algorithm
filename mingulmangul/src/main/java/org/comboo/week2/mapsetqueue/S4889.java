@@ -24,14 +24,16 @@ public class S4889 {
      */
     public static void solution() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; ; i++) {
             String str = br.readLine();
             if (!str.isEmpty() && str.charAt(0) == '-') {
                 break;
             }
             int answer = calcAnswer2(str);
-            System.out.println(i + ". " + answer);
+            sb.append(i).append(". ").append(answer).append("\n");
         }
+        System.out.println(sb);
     }
 
     // 스택 사용
@@ -73,11 +75,7 @@ public class S4889 {
                 size--;
             }
         }
-
-        if (size > 0) {
-            return answer + (size / 2);
-        }
-        return answer;
+        return answer + (size / 2);
     }
 
 }
